@@ -1,7 +1,7 @@
 # Typescript And ES6
-##**Typescript**
-###1.What is TypeScript and Why do we need it?
-####What is this?
+## Typescript
+### 1.What is TypeScript and Why do we need it?
+#### What is this?
 * TypeScript is a free and open-source programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript, and adds optional static typing to the language.
  
 * TypeScript is designed for development of large applications and transcompiles to JavaScript. As TypeScript is a superset of JavaScript, existing JavaScript programs are also valid TypeScript programs.
@@ -9,7 +9,7 @@
 #### Why do we use it?
  * TypeScript is not the only typed language that compiles to JavaScript. There are other languages with stronger type systems that in theory can provide absolutely phenomenal tooling. But in practice most of them do not have anything other than a compiler. This is because building rich dev tools has to be an explicit goal from day one, which it has been for the TypeScript team. That is why they built language services that can be used by editors to provide type checking and autocompletion.
  
-###2. How can you get TypeScript and install it?
+### 2. How can you get TypeScript and install it?
 #### We can get it with:
 The command-line TypeScript compiler can be installed as a Node.js package.
 #### Install
@@ -18,7 +18,7 @@ npm install -g typescript
 ```
 
 
-###3. How do you compile TypeScript files?
+### 3. How do you compile TypeScript files?
 #### Compile normally:
 ```bash
 tsc basic.ts
@@ -28,7 +28,7 @@ A file basic.js will create and transcompile.
 ```bash
 tsc -w basic.ts
 ```
-###4. Which Object Oriented terms are supported by TypeScript? Write an example.
+### 4. Which Object Oriented terms are supported by TypeScript? Write an example.
 There are some main things provided by any Object Oriented Design.
 
 * Modules
@@ -39,7 +39,7 @@ There are some main things provided by any Object Oriented Design.
 #### Modules
 * Modules are executed within their own scope, not in the global scope; this means that variables, functions, classes, etc. declared in a module are not visible outside the module unless they are explicitly exported using one of the export forms. 
 * Conversely, to consume a variable, function, class, interface, etc. exported from a different module, it has to be imported using one of the import forms.
-Export:
+##### Export:
 ```typescript
 class ZipCodeValidator implements StringValidator {
     isAcceptable(s: string) {
@@ -49,12 +49,12 @@ class ZipCodeValidator implements StringValidator {
 export { ZipCodeValidator };
 export { ZipCodeValidator as mainValidator };
 ```
-Import:
+##### Import:
 ```typescript
 import * as validator from "./ZipCodeValidator";
 let myValidator = new validator.ZipCodeValidator();
 ```
-####Classes and Objects
+#### Classes and Objects
 * Class is a blue print which we create by observing a real world entity. Class is a abstract signature of properties and methods that belongs to a particular entity.
 * Objects are the real concrete things which executes the behavior specified by a class. All objects of a particular class share the common blueprint.
 ```typescript
@@ -101,7 +101,7 @@ function add(x, y) {
 // Anonymous function
 let myAdd = function(x, y) { return x+y; };
 ```
-####Interfaces
+#### Interfaces
 Interfaces are very good constructs in any programming language. An interface is a list of properties and methods a class to implement. If we are telling a class is implementing an interface, then that class must have all properties and should implement methods in interface.
 ```typescript
 class Vehicle implements IVehicle{
@@ -115,7 +115,7 @@ interface IVehicle {
     start(type:string): string;
 }
 ```
-###5 How do you implement inheritance in TypeScript? Write an example.
+### 5 How do you implement inheritance in TypeScript? Write an example.
 We can implement inhertitance in TypeScript use keyword extents with base class or implements with many interfaces...
 Example:
 ```typescript
@@ -141,8 +141,8 @@ class Car extends Vehicle {
 
 
 
-##**ES6**
-###Write an example for each of the following new features in ES6:  
+## **ES6**
+### Write an example for each of the following new features in ES6:  
 #### Block scope variable
 `let` is the new `var`. ES6 provides two new ways for declaring variables: `let` and `const`. These pretty much replace the ES3 or ES5 way of declaring variables using var. By using block-level scoping, these two keywords help developers avoid common mistakes they make not because they write bad code, but because they don’t fully understand the idiosyncrasies of how JavaScript handles variables.
 Example:
