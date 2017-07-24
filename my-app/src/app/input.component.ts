@@ -11,10 +11,10 @@ export class InputComponent {
      this.name = 'hello';
   }
   newMember(){
-    let member:Member = new Member(this.name);
-    console.log(this.name);
-    console.log(member.$domElm);
-    this._sharedService.insertData(member.$domElm);
+    //let member:Member = new Member(this.name);
+  //  console.log(this.name);
+  //  console.log(member.$domElm);
+    this._sharedService.insertData(this.name);
     this.name = '';
   } 
 }

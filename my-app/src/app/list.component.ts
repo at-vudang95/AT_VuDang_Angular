@@ -13,4 +13,8 @@ export class ListComponent {
   ngOnInit():any {
     this.data = this._sharedService.dataArray;
   }
+  deleteMember(i:number){
+      //this.data = this.data.splice(i+1,1);
+      this._sharedService.deleteData(i);
+  }
 }

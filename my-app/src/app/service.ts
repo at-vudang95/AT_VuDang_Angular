@@ -2,9 +2,12 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class MyService {
-    dataArray: any[] = [];
+  dataArray: string[] = [];
 
-    insertData(data: any){
-        this.dataArray.push(data);
-    }
+  insertData(data: string){
+    this.dataArray.push(data);
+  }
+  deleteData(index: number){
+      this.dataArray.splice(index,1);
+  }
 }
