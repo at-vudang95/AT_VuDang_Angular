@@ -1,5 +1,5 @@
-
-# Component
+# Angular Knowledge round-up
+## Component
 ### Briefly explain Event Binding in Angular?
 An event handler is specified inside the template using round brackets to denote event binding. This event handler is then coded in the class to process the event.
 Example:
