@@ -1,37 +1,3 @@
-<h1>
-  List Trainer
-</h1>
-<table border="1">
-  <tr>
-    <th>Avatar</th>
-    <th>Name</th>
-    <th>Birthday</th>
-    <th>Team</th>
-    <th>Detail</th>
-  </tr>
-  <tr *ngFor="let trainer of trainers, let i = index">
-    <th><img src="{{trainer.avarta}}"></th>
-    <th>{{trainer.name}}</th>
-    <th>
-    <!--<th><i *ngIf="!trainer.birthday; else elseBlock">Empty</i>-->
-      <!--<ng-template #elseBlock>-->
-        <!--<span>{{trainer.birthday }}</span>-->
-      <!--</ng-template>-->
-      <span [emptyData]="trainer.birthday"></span>
-    </th>
-    <!--<th>{{trainer.birthday }}</th>-->
-    <th *ngIf="trainer.team === 'PHP'" [ngStyle]="{color:'blue'}">{{trainer.team}}</th>
-    <th *ngIf="trainer.team === 'Ruby'" [ngStyle]="{color:'#FAFFAD'}">{{trainer.team}}</th>
-    <th>
-      <button (click)="detail(i)">Detail</button>
-    </th>
-  </tr>
-</table>
+<app-list (detailTrainer)="detail($event)" ></app-list>
 <br>
-<div *ngIf="trainer != null">
-  <h1>Chi tiết</h1>
-  Avatar : <img src="{{trainer.avarta}}"> <br>
-  Tên : {{trainer.name}}<br/>
-  Birthday : <span><span [emptyData]="trainer.birthday"></span></span><br/>
-  Team : {{trainer.team}} <br/>
-</div>
+<app-detail [trainer] = "trainer"></app-detail>

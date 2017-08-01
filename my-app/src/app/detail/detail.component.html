@@ -1,0 +1,7 @@
+<div *ngIf="trainer != null">
+  <h1>Chi tiết</h1>
+  Avatar : <img src="{{trainer.avarta | image}}"> <br>
+  Tên : {{trainer.name}}<br/>
+  Birthday : <span><span [emptyData]="trainer.birthday"></span></span><br/>
+  Team : {{trainer.team}} <br/>
+</div>

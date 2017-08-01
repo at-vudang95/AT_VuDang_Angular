@@ -1,0 +1,30 @@
+<h1>
+  List Trainer
+</h1>
+<table border="1">
+  <tr>
+    <th>Avatar</th>
+    <th>Name</th>
+    <th>Birthday</th>
+    <th>Team</th>
+    <th>Detail</th>
+  </tr>
+  <tr *ngFor="let trainer of trainers, let i = index">
+    <th><img src="{{trainer.avarta | image }}" height="150" width="150"></th>
+
+    <th>{{trainer.name}}</th>
+    <th>
+      <!--<th><i *ngIf="!trainer.birthday; else elseBlock">Empty</i>-->
+      <!--<ng-template #elseBlock>-->
+      <!--<span>{{trainer.birthday }}</span>-->
+      <!--</ng-template>-->
+      <span [emptyData]="trainer.birthday"></span>
+    </th>
+    <!--<th>{{trainer.birthday }}</th>-->
+    <th *ngIf="trainer.team === 'PHP'" [ngStyle]="{color:'blue'}">{{trainer.team}}</th>
+    <th *ngIf="trainer.team === 'Ruby'" [ngStyle]="{color:'#FAFFAD'}">{{trainer.team}}</th>
+    <th>
+      <button (click)="detail(i)">Detail</button>
+    </th>
+  </tr>
+</table>

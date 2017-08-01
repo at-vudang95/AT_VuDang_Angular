@@ -1,31 +1,20 @@
 import { Component } from '@angular/core';
+import {MyService} from "./MyService";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [MyService]
 })
 export class AppComponent {
-  title = 'app';
-  trainers: any[];
-  trainer: any;
-  constructor() {
-    this.trainer = null;
-    this.trainers = [{
-      'avarta': '../assets/avata.jpg',
-      'name': 'Nam 1',
-      'team': 'Ruby',
-    }, {
-      'avarta': '../assets/avata.jpg',
-      'name': 'Nam 2',
-      'birthday': '20/10/1995',
-      'team': 'PHP',
-    }];
+  trainer : any;
+  constructor(private trainerService: MyService) {
   }
   detail(index: number) {
     this.trainer = null;
     setTimeout(() => {
-      this.trainer = this.trainers[index];
+      this.trainer = this.trainerService.trainers[index];this.trainer = this.trainerService.trainers[index];
     });
   }
 }
