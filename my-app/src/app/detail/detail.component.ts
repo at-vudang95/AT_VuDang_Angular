@@ -1,5 +1,5 @@
 import {Component, Input, DoCheck} from '@angular/core';
-import {MyService} from "../MyService";
+import {MyService} from '../MyService';
 
 @Component({
   selector: 'app-detail',
@@ -8,11 +8,5 @@ import {MyService} from "../MyService";
 export class DetailComponent {
   @Input() trainer: any;
   constructor(private trainerService: MyService) {
-
   }
-  // ngDoCheck() {
-  //      	this.trainer = this.trainerService.trainer[this.id];
-  // }
-
-
 }

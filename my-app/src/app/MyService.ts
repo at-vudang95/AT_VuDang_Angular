@@ -1,33 +1,19 @@
 import {Injectable} from '@angular/core';
+import {Http, Response} from '@angular/http';
+import 'rxjs/Rx';
 
 @Injectable()
 export class MyService {
+
   trainer: any = null;
-  trainers = [{
-    'avarta': '../../assets/avata.jpg',
-    'name': 'Nam 1',
-    'team': 'Ruby',
-  }, {
-    'avarta': '../../assets/avata.jpg',
-    'name': 'Nam 2',
-    'birthday': '20/10/1995',
-    'team': 'PHP',
-  }, {
-      'avarta': '',
-      'name': 'Sinh vien 3',
-      'birthday': '22/10/1994',
-      'team': 'Ruby',
-    }, {
-    'avarta': '',
-    'name': 'Sinh vien 4',
-    'birthday': '10/12/1995',
-    'team': 'PHP',
-  }];
-  getList(){
-    return this.trainers;
+  trainers: Array<any> = [];
+  constructor(private http: Http) {
   }
-  changeTrainer(index: number) {
-    this.trainer = this.trainers[index];
+  getList() {
+    return this.http.get('assets/data.json').map(res => res.json());
+  }
+  getDetail(index: number) {
+    return this.trainer = this.trainers[index];
   }
 
 }

@@ -24,7 +24,7 @@
     <th *ngIf="trainer.team === 'PHP'" [ngStyle]="{color:'blue'}">{{trainer.team}}</th>
     <th *ngIf="trainer.team === 'Ruby'" [ngStyle]="{color:'#FAFFAD'}">{{trainer.team}}</th>
     <th>
-      <button (click)="detail(i)">Detail</button>
+      <button (click)="detail(trainer.id)">Detail</button>
     </th>
   </tr>
 </table>

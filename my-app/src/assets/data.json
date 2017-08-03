@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "id":1,
+      "avarta": "../../assets/avata.jpg",
+      "name": "Nam 1",
+      "team": "Ruby"
+    },
+    {
+      "id":2,
+      "avarta": "../../assets/avata.jpg",
+      "name": "Nam 2",
+      "birthday": "20/10/1995",
+      "team": "PHP"
+    },
+    {
+      "id":3,
+      "avarta": "",
+      "name": "Sinh vien 3",
+      "birthday": "22/10/1994",
+      "team": "Ruby"
+    },
+    {
+      "id":4,
+      "avarta": "",
+      "name": "Sinh vien 4",
+      "birthday": "10/12/1995",
+      "team": "PHP"
+    }
+  ]
+}
