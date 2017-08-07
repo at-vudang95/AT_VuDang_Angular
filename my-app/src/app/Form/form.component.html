@@ -1,0 +1,53 @@
+<div>
+  <h1>Create Member</h1>
+  <div>
+    <form [formGroup]="registerForm" novalidate (ngSubmit)="save(registerForm.value, registerForm.valid)">
+        <table>
+          <tbody formGroupName="personal">
+          <tr>
+            <td><b>Personal</b></td>
+          </tr>
+          <tr>
+            <td>Avatar</td>
+            <td><input type="file" formControlName="avatar"></td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td><input type="text" formControlName="name"></td>
+          </tr>
+          <tr>
+            <td>Birthday</td>
+            <td><input type="date" formControlName="birthday"></td>
+          </tr>
+          </tbody>
+          <tbody formGroupName="company">
+          <tr>
+            <td><b>Company</b></td>
+          </tr>
+          <tr>
+            <td>Joined</td>
+            <td><input type="date" formControlName="joined"></td>
+          </tr>
+          <tr>
+            <td>Team</td>
+            <td>
+              <select  formControlName="team">
+                <option>FE</option>
+                <option>PHP</option>
+                <option>RuBy</option>
+              </select>
+            </td>
+          </tr>
+          <tr [hidden]="!registerForm.controls['company'].controls.team.valid">
+            <td>Skill</td>
+            <td><textarea formControlName="skill"></textarea></td>
+          </tr>
+          </tbody>
+
+        </table>
+      <input [disabled]="!registerForm.valid" type="submit" value = "Register">
+    </form>
+  </div>
+
+</div>
+
