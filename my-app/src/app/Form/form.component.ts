@@ -1,47 +1,65 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
+import {MyService} from '../service/MyService';
 @Component({
   selector: 'app-form-register',
   templateUrl: './form.component.html'
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnInit, OnChanges {
+
+  @Input() id: any;
+  @Input() edited: boolean;
   member: any;
   teams: Array<any>;
   public submitted: boolean; // keep track on whether form is submitted
   registerForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
-  }
-
-  // registerMember (member: NgForm) {
-  //   console.log(member.value.company.team);
-  //   // member.value.personel.name = 'vudang';
-  // }
-  ngOnInit() {
+  constructor(private formBuilder: FormBuilder, private service: MyService) {
+    this.teams = [
+      'FE', 'Ruby', 'PHP'
+    ];
+    this.member = this.service.data[0];
     this.registerForm = this.formBuilder.group({
       personal: this.formBuilder.group({
-        avatar: [],
-        name: ['', [Validators.required, Validators.minLength(8)]],
-        birthday: ['', Validators.required],
+        name: new FormControl('', [Validators.required]),
+        birthday: new FormControl(['', Validators.required]),
       }),
       company: this.formBuilder.group({
-        joined: ['', Validators.required],
-        team: ['', Validators.required],
-        skill: ['', Validators.required]
-      })
+        joined: new FormControl('', Validators.required),
+        team: new FormControl('None', Validators.required)
+      }),
+      skill: new FormControl({})
     });
-    this.registerForm.valueChanges.subscribe(form => {
-        (this.registerForm.controls['company'].get('skill'))
-          .setValue(form.company.team, { onlySelf: true });
-    });
-    // (<FormControl>this.registerForm.controls['name'])
-    //   .setValue('John', { onlySelf: true });
   }
-  save(model: any, isValid: boolean) {
-    this.submitted = true; // set form submit to true
+  ngOnInit() {
+    this.registerForm.controls['company'].get('team').valueChanges.subscribe(value => {
+       this.registerForm.setControl('skill',
+         new FormControl('', [Validators.required, this.checkSkill]));
+    });
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    (<FormGroup>this.registerForm).setValue(this.service.data[this.id]);
+    this.member = this.service.data[this.id];
+  }
+  save(model: any) {
+    // console.log(model);
+    if (this.edited) {
+      this.service.data[this.id] = model;
+      this.edited = false;
+    }else {
+      this.service.data.push(model);
+    }
+  }
+  checkSkill = (input: FormControl) => {
+    let team: string;
+    team = this.registerForm.controls['company'].get('team').value;
+    let isValid: boolean;
+    if (input.value.indexOf(team) === -1) {
+      isValid = false;
+    }else {
+      isValid = true;
+    }
 
-    // check if model is valid
-    // if valid, call API to save customer
-    console.log(model, isValid);
+    return !isValid ? { skillInvalid : true } : null;
   }
 }
