@@ -12,13 +12,13 @@ export const routes: Routes = [
     children: [
       { path: '', component: ListArticleComponent, pathMatch: 'full' },
       { path: ':id', component: DetailArticleComponent},
-      { path: 'edit:id', component: FormArticleComponent}
+      { path: 'edit/:id', component: FormArticleComponent}
     ]
   },
   { path: '', component: FormArticleComponent },
+  { path: 'about', component: FormArticleComponent },
   { path: '**',
-    redirectTo: '/',
-    pathMatch: 'full'
+    component: FormArticleComponent
   },
 ];
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
