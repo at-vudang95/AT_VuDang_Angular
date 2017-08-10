@@ -1,0 +1,32 @@
+{
+  "articles": [
+    {
+      "id":1,
+      "title": "Article 1",
+      "image": "../../../assets/mon1.jpg",
+      "content": "Content 1",
+      "author": "Author 1"
+    },
+    {
+      "id":2,
+      "title": "Article 2",
+      "image": "../../../assets/mon1.jpg",
+      "content": "Content 2",
+      "author": "Author 2"
+    },
+    {
+      "id":3,
+      "title": "Article 3",
+      "image": "../../../assets/mon1.jpg",
+      "content": "Sinh vien 3",
+      "author": "Author 3"
+    },
+    {
+      "id":4,
+      "title": "Article 4",
+      "image": "../../../assets/mon1.jpg",
+      "content": "Sinh vien 4",
+      "author": "Author 4"
+    }
+  ]
+}
